@@ -1,11 +1,10 @@
 import './App.css'
-import Weather from "./components/Weather.jsx";
 import Header from "./components/Header.jsx";
 
 function App() {
     return (
         <>
-            <Header />
+            <Header/>
             <section className="main">
             </section>
         </>

@@ -3,9 +3,13 @@ import Weather from "./Weather.jsx";
 
 const Header = () => {
     return <>
-        <header>
-            <nav className="text-logo font-bold font-normal size-4 flex align-middle text-center text-white">OFTW</nav>
-            <Weather />
+        <header className="h-10 mt-3">
+            <nav className="flex flex-row justify-between">
+                <span className="flex text-base sm:text-xl lg:text-2xl text-logo font-bold font-normal items-center text-center text-white pl-3 sm:pl-6">
+                    OFTW
+                </span>
+                <Weather/>
+            </nav>
         </header>
     </>
 }
