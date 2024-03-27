@@ -548,6 +548,14 @@ video {
   margin-top: 0.75rem;
 }
 
+.mt-9 {
+  margin-top: 2.25rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -586,6 +594,14 @@ video {
 
 .pr-3 {
   padding-right: 0.75rem;
+}
+
+.pl-6 {
+  padding-left: 1.5rem;
+}
+
+.pr-6 {
+  padding-right: 1.5rem;
 }
 
 .text-center {
@@ -630,6 +646,14 @@ video {
 @media (min-width: 640px) {
   .sm\:pl-6 {
     padding-left: 1.5rem;
+  }
+
+  .sm\:pl-10 {
+    padding-left: 2.5rem;
+  }
+
+  .sm\:pr-10 {
+    padding-right: 2.5rem;
   }
 
   .sm\:text-base {
