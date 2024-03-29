@@ -1,6 +1,6 @@
 const Card = () => {
     return <>
-        <div className="flex h-60 mx-6 sm:mx-10 border-white border-solid border-2 rounded-2xl p-6 columns-2 shadow-2xl">
+        <div className="flex h-60 my-3 border-white border-solid border-2 rounded-2xl p-6 columns-2">
             <span className="w-3/4">
                 photo
             </span>
