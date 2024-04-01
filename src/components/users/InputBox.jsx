@@ -1,7 +1,7 @@
 import {forwardRef, useState} from "react";
 
 const InputBox = forwardRef(function InputBox(props, ref) {
-    const buttonClass = props.value === '' ? 'bg-gray-500' : 'bg-black/80';
+    const buttonClass = props.isValid === false ? 'bg-gray-500' : 'bg-black/80';
     const errorClass = props.isValid === false ? 'text-red-300' : 'text-green-300';
     const messageClass = props.message === '' ? 'invisible' : '';
 
