@@ -1,20 +1,27 @@
 import {useState} from "react";
-import Modal from "./Modal.jsx";
-import ModalContent from "./ModalContent.jsx";
+import ButtonModal from "./ButtonModal.jsx";
+import ButtonModalContent from "./ButtonModalContent.jsx";
 
 const Footer = () => {
 
-    const [open,setOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const onClickButton = () => {
+        const brModal = document.getElementById('br-modal');
         setOpen(true);
+        brModal.classList.toggle('translate-y-6');
     }
 
     return <>
         <footer className="flex justify-end mt-3 mb-4 mr-4">
-            <Modal open={open} onClose={() => setOpen(false)}>
-                <ModalContent/>
-            </Modal>
+            <ButtonModal open={open} onClose={() => {
+                const brModal = document.getElementById('br-modal');
+                setOpen(false);
+                brModal.classList.toggle('translate-y-6');
+            }
+            }>
+                <ButtonModalContent/>
+            </ButtonModal>
             <div
                 className="flex size-10 border-solid border-white border-2 rounded-full justify-center items-center"
                 onClick={onClickButton}

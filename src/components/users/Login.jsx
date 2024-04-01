@@ -1,8 +1,14 @@
 import Content from "../Content.jsx";
+import InputBox from "./InputBox.jsx";
 
 const Login = () => {
     return (
-        <Content>
+        <Content center="flex flex-col items-center" isForm={true}>
+            <InputBox title="User ID" type="text" placeholder="Enter user id"/>
+            <InputBox title="Password" type="password" placeholder="Enter your password"/>
+            <div className="flex justify-center items-center bg-gray-500 size-10 rounded-lg w-full mt-8">
+                <span>Sign In</span>
+            </div>
         </Content>
     );
 };
