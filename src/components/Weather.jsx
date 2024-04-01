@@ -2,7 +2,12 @@ import {useEffect, useState} from "react";
 
 const Weather = () => {
     const [res, setRes] = useState({});
-    const [city,setCity] = useState("Seoul");
+    const [city, setCity] = useState("Seoul");
+
+    const dates = new Date();
+    const year = dates.getFullYear();
+    const month = String(dates.getMonth() + 1).padStart(2, '0');
+    const day = String(dates.getDay()).padStart(2, '0');
 
     const API_KEY = import.meta.env.VITE_OPEN_WEATHER;
 
@@ -38,12 +43,11 @@ const Weather = () => {
                 />
             </div>
             <div id="nav-date" className="flex flex-col">
-                <span data-name="year" className="text-sm sm:text-base tracking-custom">2024</span>
+                <span data-name="year" className="text-sm sm:text-base tracking-custom">{year}</span>
                 <span data-name="dates" className="flex-row text-sm sm:text-base">
-                    <span data-name="month">03 | </span>
-                    <span data-name="date" className="font-extrabold">24</span>
+                    <span data-name="month">{month} | </span>
+                    <span data-name="date" className="font-extrabold">{day}</span>
                 </span>
-
             </div>
         </div>
     </>;
