@@ -52,7 +52,7 @@ const Registration = () => {
     }
 
     return (
-        <Content center="flex flex-col items-center" isForm={true}>
+        <Content center="pt-20 flex flex-col items-center" isForm={true}>
             <InputBox id="userId" title="User ID" placeholder="Enter user id" value={id} type="text" message={idMessage} isValid={idIsValid} buttonTitle="Validate" onChange={onChange}/>
             <InputBox id="email" title="Email" placeholder="Enter your email" value={email} type="text" message={emailMessage} isValid={emailIsValid} buttonTitle="Verify" onChange={onChange} />
             <InputBox id="password" title="Password" placeholder="Enter password" type="password" onChange={onChange}/>

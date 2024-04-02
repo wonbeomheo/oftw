@@ -11,7 +11,8 @@ const InputBox = forwardRef(function InputBox(props, ref) {
             <div className="flex flex-col gap-1">
                 <div className="flex flex-row gap-2.5">
                     <input id={props.id} className="flex-1 p-2 px-3" placeholder={props.placeholder}
-                           type={props.type} onChange={props.onChange} onKeyDown={props.onKeyDown}/>
+                           type={props.type} onChange={props.onChange} onKeyDown={props.onKeyDown}
+                           autoComplete={props.type === "password" ? "current-password" : "disabled"}/>
                     {props.buttonTitle !== undefined &&
                         <div className={`w-full ${buttonClass} text-white/80
                         rounded-lg text-center p-2 cursor-pointer`}>{props.buttonTitle}</div>}
