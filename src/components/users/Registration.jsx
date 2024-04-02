@@ -23,44 +23,23 @@ const Registration = () => {
     const [password2Message, setPassword2Message] = useState('');
     const [password2IsValid, setPassword2IsValid] = useState(false);
 
-    function validateId(value) {
-        setId(() => value);
-        value.length > 0 ? setIdIsValid(true) : setIdIsValid(false);
-        checkButtonActive();
-        console.log(id);
-    }
-
-    function validateEmail(email) {
-        let isValid = String(email)
-            .toLowerCase()
-            .match(EMAIL_REGEX);
-        if (isValid) {
-            setEmail(email);
-            setEmailIsValid(true);
-            setEmailMessage("Email is valid.")
+    useEffect(() => {
+        if (email.length !== 0) {
+            let isValid = String(email)
+                .toLowerCase()
+                .match(EMAIL_REGEX);
+            if (isValid) {
+                setEmailIsValid(true);
+                setEmailMessage("");
+            } else {
+                setEmailMessage("Invalid email address");
+                setEmailIsValid(false);
+            }
         } else {
-            setEmailMessage("Invalid email address");
+            setEmailMessage("");
             setEmailIsValid(false);
         }
-        checkButtonActive();
-    }
-
-    const onChangePassword = (event) =>{
-        setPassword(event.target.value);
-    }
-
-    function onChangePassword2(event) {
-        setPassword2(event.target.value);
-
-    }
-
-    function checkButtonActive() {
-        if (idIsValid && emailIsValid && passwordIsValid && password2IsValid) {
-            return "bg-black/80";
-        } else {
-            return "bg-gray-500";
-        }
-    }
+    }, [email]);
 
     function checkPasswords() {
         if (password !== password2) {
@@ -94,7 +73,6 @@ const Registration = () => {
                 setPasswordMessage("Password must contain at least a lowercase, a uppercase and a numeric character");
             }
         }
-        checkButtonActive();
     }, [password]);
 
     useEffect(() => {
@@ -115,21 +93,26 @@ const Registration = () => {
                 setPassword2Message("Password must contain at least a lowercase, a uppercase and a numeric character");
             }
         }
-        checkButtonActive();
     }, [password2])
 
     return (
         <Content center="pt-20 flex flex-col items-center" isForm={true}>
             <InputBox id="userId" title="User ID" placeholder="Enter user id" value={id} type="text" message={idMessage}
-                      isValid={idIsValid} buttonTitle="Validate" onChange={validateId}/>
+                      isValid={idIsValid} buttonTitle="Validate" onChange={(event) => setId(event.target.value)}
+                      buttonClass={id.length > 0 ? "bg-black/80" : "bg-gray-500"}
+            />
             <InputBox id="email" title="Email" placeholder="Enter your email" value={email} type="text"
-                      message={emailMessage} isValid={emailIsValid} buttonTitle="Verify" onChange={validateEmail}/>
+                      message={emailMessage} isValid={emailIsValid} buttonTitle="Verify" onChange={(event) => setEmail(event.target.value)}
+                      buttonClass={emailIsValid ? "bg-black/80" : "bg-gray-500"}
+            />
             <InputBox id="password" title="Password" placeholder="Enter password" type="password"
-                      value={password} message={passwordMessage} isValid={passwordIsValid} onChange={onChangePassword}/>
+                      value={password} message={passwordMessage} isValid={passwordIsValid}
+                      onChange={(event) => setPassword(event.target.value)}/>
             <InputBox id="password2" title="Confirm Password" placeholder="Enter password" type="password"
-                      value={password2} message={password2Message} isValid={password2IsValid} onChange={onChangePassword2}/>
+                      value={password2} message={password2Message} isValid={password2IsValid}
+                      onChange={(event) => setPassword2(event.target.value)}/>
             <div
-                className={`mt-8 w-full ${checkButtonActive()} size-10 rounded-lg flex justify-center items-center cursor-pointer`}
+                className={`mt-8 w-full bg-black/80 size-10 rounded-lg flex justify-center items-center cursor-pointer`}
                 onClick={() => {
                 }}>
                 <span>Sign Up</span>
